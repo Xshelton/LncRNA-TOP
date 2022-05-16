@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>468</width>
+    <height>520</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="3" column="1">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Authors : WeidunXie@ City University of HongKong, HongKong SAR</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Citations: lncRNA-TOP: Predicting LncRNA-gene relationships With kernel PCA and RF-CNN ensembles</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>Contact：weidunxie2-c@my.cityu.edu.hk</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="1" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>LncRNA (or Keywords)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>Look up &quot;Key Words&quot;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="1">
+       <widget class="QLabel" name="label_8">
+        <property name="text">
+         <string>Save the results as CSV file</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0">
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="text">
+         <string>Save as File</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPlainTextEdit" name="plainTextEdit"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_10">
+        <property name="text">
+         <string>TOP_K</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>Please input keywords </string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="text">
+         <string>Find Score of one pair</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QLabel" name="label_11">
+        <property name="text">
+         <string>Show top results of one LncRNA or Gene</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Gene</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLabel" name="label_12">
+        <property name="text">
+         <string>Input a pair of LncRNA and gene, get the score</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="text">
+         <string>Find top k of specific LncRNA or Gene</string>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="0">
+       <widget class="QPushButton" name="pushButton_5">
+        <property name="text">
+         <string>Examples</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>LncRNA-TOP</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QTextEdit" name="textEdit"/>
+      </item>
+      <item row="3" column="1">
+       <widget class="QTextEdit" name="textEdit_2"/>
+      </item>
+      <item row="0" column="1">
+       <widget class="QGraphicsView" name="graphicsView"/>
+      </item>
+      <item row="7" column="0">
+       <widget class="QRadioButton" name="radioButton">
+        <property name="text">
+         <string>LncRNA's Top K</string>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">buttonGroup</string>
+        </attribute>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="QRadioButton" name="radioButton_2">
+        <property name="text">
+         <string>Gene's Top K</string>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">buttonGroup</string>
+        </attribute>
+       </widget>
+      </item>
+      <item row="10" column="1">
+       <widget class="QLabel" name="label_13">
+        <property name="text">
+         <string>Show example of how to use it.</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="2" column="1">
+     <widget class="QTextBrowser" name="textBrowser"/>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLabel" name="label_9">
+      <property name="text">
+       <string> Please cite our paper if you think this software is helpful. </string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>468</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuIncRNA_TOP_V1_0">
+    <property name="title">
+     <string>IncRNA_TOP_V1.0</string>
+    </property>
+   </widget>
+   <addaction name="menuIncRNA_TOP_V1_0"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+ <buttongroups>
+  <buttongroup name="buttonGroup"/>
+ </buttongroups>
+</ui>
