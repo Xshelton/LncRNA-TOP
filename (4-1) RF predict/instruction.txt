@@ -1,0 +1,50 @@
+
+#First you need to run 
+please make new folder/
+.\\model
+.\\results
+.\\original_dataset (put dataset into it)
+
+in the same folder of main4(LncTar+LOWc-predict-Case).py
+
+main4(LncTar+LOWc-predict-Case).py
+
+to generate the model first in the folder of model.
+#train model file// you can alter it
+    project='LncTar+LC{}'.format(file_number)
+    datasetA='.\\original_dataset\\constructed_lncTarD+LC_{}.csv'.format(file_number)
+#test file// you can alter it.
+    project2='Case_study6(for LC+incTar)_{}'.format(file_number2)
+    datasetB='.\\original_dataset\\constructed_CASE_STUDY_left_6_for LC+INCTar{}.csv'.format(file_number2)
+ 
+    dataA='lnc'
+    featureA='mix_kpca4096'
+    dataB='gene'
+    featureB='mix_kpca4096'
+    dataC='gene'
+    featureC='mix_kpca4096'
+    model='RF'
+    para='120'
+
+    #output_name='.\\model\\{}-{}_{}-{}_{}-{}_{}-{}_{}-{}.m'.format(project,project2,dataA,featureA,dataB,featureB,dataC,featureC,model,para)
+    output_name='.\\model\\{}-{}-{}.m'.format(project,model,para)
+#then it will generate the model for predict.
+it will also generate the results for the transfervalidation.
+lk.to_csv('.\\results\\Transfer_validation_report_of_Inctar+LC_trans_Case6_Mauc{}_Maupr{}(each Model).csv'.format(Aauc,Aaupr),index=None)
+
+Then run the Main5_RF_predict.py to get the final score of RF 
+
+# fileA= lncRNA features file
+# fileB= gene features file
+# model_name = model directory
+#  out_dir=results dir
+# frs =different dataset may have different frs, then will genenrate different results
+
+#LncTar+LC1-RF-120.m
+model_name='.\\model\\LncTar+LC{}-RF-120.m'.format(frs)
+generate_to_predict_type3(fileA='.\\features\\lnc-palindormic_mix_kernalpolyPCA4096).csv',
+                                                       labelA='label',
+                                                       fileB='.\\features\\\\gene mix_kernelpolyPCA4096).csv',
+                                                       labelB='label',
+                                                       model_name=model_name,
+                                                       out_dir='.//predict_results//refine_temp{}-{}'.format(frs,frs)  )
