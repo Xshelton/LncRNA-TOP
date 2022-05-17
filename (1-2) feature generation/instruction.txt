@@ -1,1 +1,5 @@
 generate features from CSV file 
+Jupyter notebook installed needed.
+package involved:
+ import pandas as pd
+ import itertools
