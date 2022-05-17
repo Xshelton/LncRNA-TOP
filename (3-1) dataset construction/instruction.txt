@@ -1,0 +1,39 @@
+step1:
+random_seed=5
+#first need to add those file first as the positive pairs 
+to reduce the posibility of adding positive pairs as negative pairs
+
+df1,posi_name=load_positive_samples('.\original dataset\CASE_STUDY.csv','lnc','gene')
+posi_name=add_positive_samples('.\original dataset\IncTarD_no_overlap.csv','lnc','gene',posi_name)
+posi_name=add_positive_samples('.\original dataset\lncRNA_target_from_low_throughput_experiments_ENSG_both.csv','lnc','gene',posi_name)
+posi_name=add_positive_samples('.\original dataset\CASE_STUDY.csv','lnc','gene',posi_name)
+posi_name=add_positive_samples('.\original dataset\lncrna_target_high throughput experiments_v3_ENSG_both(rule out not existed).csv','lnc','gene',posi_name)
+
+
+df2=load_ab_file('.\lnc\lnc-6mer_added_label.csv','label','.\gene\gene_3mer_added_label.csv','label',outA='lnc',outB='gene',posi_name=posi_name,mount=len(df1),random_seed=random_seed)
+df3=pd.concat([df1,df2],axis=0)
+df3.to_csv('.\manuelly curated negative samples\constructed_case_study_rs{}.csv'.format(random_seed),index=None)
+Generate the "constructed_case_study_rs{}.csv" for further use(step2)
+
+step2:
+change the embedding into dataset 
+Batch_Embedding_to_dataset.py
+
+
+embedding2dataset(fileA='.\\lnc\lnc-palindormic_mix_kernalpolyPCA{}).csv'.format(mp),#lnc-palindormic_kernelpolyPCA64).csv
+                                                               labelA='label',
+                                                               fileB='.\\gene\\gene mix_kernelpolyPCA{}).csv'.format(gp),
+                                                               labelB='label',
+                                                               dataset='.\\manuelly curated negative samples\\constructed_LC+IncTar(refine_1382)_rs{}.csv'.format(frs),
+                                                               dataA='lnc',
+                                                               dataB='gene',
+                                                               outputname='.\\Embedding_dataset\\constructed_ILC+IncTar(refine_1382)_rs_{}_{}.csv'.format(frs,mp),
+                                                               partion=0.1,
+                                                               randomseed=rs,
+                                                               )
+                                                               
+    fileA==the dir that you put your first file,'label'is the index to construct the dataset/
+    fileB= the dir that you put your second file
+    dataset is the refined dataset (all samples,including positive and negative)
+    rs is random seed fixed to reproduce/generate the negative samples.
+    outputname= the dir to generate or store the final embedding dataset.
