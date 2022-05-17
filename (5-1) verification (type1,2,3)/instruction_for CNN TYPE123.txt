@@ -1,0 +1,76 @@
+TYPE 1,2 CNN-->
+
+
+frs=1
+#1,2,3 for the dataset_file
+#for each of the dataset, it has a
+runtimes=10
+dimensions=4096
+#2,4,6,8,10 this is to do the repeat, for each runtimes,it will set the rs(random state) as the runtime
+#Thus in order to repeat, just change the runtimes, it would be okay.
+#change dataset here/Inctar,Lowc
+X,Y,dts=LCInctarD_dataset(frs,dimensions)
+#LC_dataset(frs,dimensions)
+
+model_type='TYPE2'
+#change the TYPE here , for type1 type2
+
+title='{}_{}_{}_4096_cnn'.format(model_type,dts,frs)
+
+for rs in range(runtimes-5,runtimes):
+if OOM error reduce the number like:
+  for rs in range(runtimes-2,runtimes):
+  for rs in range(runtimes-3,runtimes):
+
+if the runtimes-5:
+repeat it by set runtimes as 5,10
+if runtimes-2:
+repeat it by set runtimes as 2,4,6,8,10
+then change the Frs(dataset) for next turn.
+
+for runtimes in range(seq_n,seq_n+addition):
+    #runtimes=10
+    dimensions=4096
+    
+For type3:
+ you need to generate the 10 folds file first:
+ 
+ change the paras:
+
+frs=2
+#1,2,3 the dataset_file
+#for each of the dataset, it has a
+#Seq_n==>Start from which folds:
+seq_n=10
+#addition==>Each run for how many folds:
+addition=1
+eg..
+if we chose seq_n=1, addition=10:
+please make sure it will not MM0:
+then it will retrive files from:
+Results\temp\10folds
+and get the files:
+
+example for IT type3,paras are fix into the function of IT_dataset_Type3
+you can modify your own function.
+
+def IT_dataset_Type3(frs,times):
+    #LC_embeddding_(refine_493_rs1_epoch_1_1.csv
+#    df=pd.read_csv('.\\Results\\temp\\constructed_LC(Remove)_rs{}_mkPCA{}mer_mkPCA{}.csv'.format(frs,dimensions,dimensions))#Noisy dataset
+    df=pd.read_csv('.\\Results\\temp\\10folds\\constructed_ILC+IncTar(refine_1382)_rs_{}_4096_epoch_{}_{}.csv'.format(frs,frs,times))
+    labels=df.pop('label')
+    mirna=df.pop('lnc')
+    gene=df.pop('gene')
+    #LC_embeddding_(refine_493_rs1_epoch_1_1_test.csv
+    df_test=pd.read_csv('.\\Results\\temp\\10folds\\constructed_ILC+IncTar(refine_1382)_rs_{}_4096_epoch_{}_{}_test.csv'.format(frs,frs,times))
+    test_labels=df_test.pop('label')
+    test_mirna=df_test.pop('lnc')
+    test_gene=df_test.pop('gene')
+    X_test=df_test
+    Y_test=test_labels
+    dts='IT+LC10folds'
+    test_set='constructed_ILC+IncTar(refine_1382)_rs_{}_4096_epoch_{}_{}_test.'.format(frs,frs,times)
+    X=df
+    Y=labels
+    return X,Y,dts,X_test,Y_test,test_set
+    
