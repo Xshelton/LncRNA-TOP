@@ -1,0 +1,28 @@
+folder are like this:
+.//features
+.//model
+.//predict_results/
+.//results
+and put the embedding dataset in the root dir.
+
+#run step1 to generate model
+#run step2 to generate scores.
+
+files and project can be changed.
+I fixed paras by def function (return_paras)_(project1)_predict_(project2)
+
+HC_number is used when predicting HC.
+usually case_number is enought,IF HC not in the test set.
+This file can be used for directly predict or transfer validation/verification.
+
+
+case_number=5#the file number for train
+HC_number=3#file number for test only for HC
+
+ori_dataset,project,test_set_name,model_save_path,dataset_name=return_paras_LCINC_predict_HC(case_number,HC_number)#this will generate scores for LC+LINC predict HC
+#return_paras_LCLNC_predict_ALL(case_number)#change into this will generate all scores.
+
+print(test_set_name[0])
+if 'HC' not in test_set_name[0] :
+    print('HC not found',HC_number ,'reset into 0')
+    HC_number=0
